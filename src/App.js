@@ -1,3 +1,5 @@
+import { GlobalStyle } from './global.styles';
+
 import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -16,7 +18,6 @@ const Navigation = lazy(() =>
 );
 const Shop = lazy(() => import('./routes/shop/shop.component'));
 
-
 const App = () => {
   const dispatch = useDispatch();
 
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalStyle />
       <Routes>
         <Route path='/' element={<Navigation />}>
           <Route index element={<Home />} />
